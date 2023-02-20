@@ -15,7 +15,8 @@ In this demo we will introduce you to the main benefits of using Terraform over 
 # Before running the instruqt track
 * Create a new workspace in org in TFC
 * Copy the ORG ID, this can be found on [General Settings](https://app.terraform.io/app/tallen-playground/settings/profile)
-* Create a API Token, this can be found in [User Setting/Tokens](https://app.terraform.io/app/settings/tokens)
+* **OPTIONL** Create a API Token, this can be found in [User Setting/Tokens](https://app.terraform.io/app/settings/tokens)
+    * This is created for you
 
 # DO THIS STEP BEFORE STARTING THE DEMO!
 Running the following script provides the Instruqt track your TFC organization and API token.
