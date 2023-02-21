@@ -28,25 +28,4 @@ Running the following script provides the Instruqt track your TFC organization a
 ```
 Note that when you paste the token, it will not be displayed; don't paste it twice.
 
----
-## Infrastructure-as-Code (IaC) Primer
-```bash
-cd /root/gitclones/hashicups-application
-terraform init
-terraform plan
-terraform apply
-```
-
-**Outputs**
-```
-environment = "not-defined"
-output = <<EOT
-
-frontend: ssh -i ~/awskey.pem ubuntu@35.162.168.45
-public-api: ssh -i ~/awskey.pem ubuntu@52.11.151.17
-product-api: ssh -i ~/awskey.pem ubuntu@18.236.135.207
-postgres: ssh -i ~/awskey.pem ubuntu@35.165.155.250
-
-Takes a few mins to install packages:
-http://35.162.168.45
-```
+# [Demo Script](TF_Land_Demo.md)
