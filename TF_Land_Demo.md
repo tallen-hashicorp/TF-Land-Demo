@@ -39,9 +39,17 @@ First track simply run `~/setup/scripts/tfc-setup.sh` and click **check**
 
 ## Demo Starts Here
 
-* Introduce Infrastructure As Code and State Management - reusability
+* **Slides**
+* Show Hashicorp Arch Slide
+    * Simple 3 teir app with 3 webservers, 4 databases and networking
+* Show Current Process Slide to Explain process
+* Show IaC Slide
+    * Introduce Infrastructure As Code and State Management - reusability
 * I'll show how we integrate with a version control system like Git, how we declare our infrastructure
 * I'll start with provisioning our infrastructure "from scratch" via Terraform OSS, show the outputs, and explore how we can iterate even further.
+
+---
+* **code/terminal**
 * Show HCL in `/hashicups-application`
 * Declarative language in HCL..etc
 * Explain that all this could be in a single project, but it's already been split up into modules.
