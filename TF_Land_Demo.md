@@ -43,11 +43,68 @@ First track simply run `~/setup/scripts/tfc-setup.sh` and click **check**
 * I'll show how we integrate with a version control system like Git, how we declare our infrastructure
 * I'll start with provisioning our infrastructure "from scratch" via Terraform OSS, show the outputs, and explore how we can iterate even further.
 * Show HCL in `/hashicups-application`
+* Declarative language in HCL..etc
+* Explain that all this could be in a single project, but it's already been split up into modules.
+* Explain purpose of reusable modules… the server module is used
 
-
-
+```bash
+cd /root/gitclones/hashicups-application
+terraform init
+terraform plan
+terraform apply
+```
 
 ---
+* **Check** (Sets up TFC)
+* Show tfstate - Its very important to store the state file in a secure location because it does contain sensitive data 
+* Lets migrate our hashicups-cli workspace to Terraform cloud .
+* Show /hashicups-application/remote-backend.tf
+* Explain that the init process migrates the file to TFC and creates the hashicups-cli workspace.
+
+```bash
+cd /root/gitclones/hashicups-application
+terraform init
+```
+
+* From GitLab show the **HashiCups Application** repos attached with each branch connected to the corresponding Repositories (Prod, Dev Stage).
+* Run a plan in **staging**
+
+---
+* **Check** (Next we look at modules)
+* These modules simplify the overhead consumers go through in building infrastructure from scratch. These standardized (and repeatable!) modules ensure the Terraform configurations adhere to internal best practices and compliance requirements.
+* The contributing teams for the module registry might be:
+    * Networking Teams
+    * Infrastructure Admins
+    * Database Teams
+    * Security Teams
+
+```bash
+cd /root/setup/terraform/tfc-registry
+terraform init
+terraform apply -auto-approve
+```
+
+* In the new TFC hashicups-module workspace trigger a plan. You can also apply it if you want and then connect to the application by right-clicking on the URL at the end of the "output" output.
+
+---
+* **Check** (Next we look at Guardrails)
+* Review the `cloud-agnostic/pmr/require-all-resources-from-pmr.sentinel` policy in the GitLab
+* Explain that Sentinel supports advisory, soft-mandatory, and hard-mandatory enforcement modes and that all of the demo's policy sets use the soft-mandatory option which means that users with suitable permissions can override the violations and still apply the runs.
+* In the Settings/Policy Sets show the configured require-all-resources-from-pmr policy set.
+* In your hashicups-staging or hashicups-prod workspace, queue a new plan
+* observe the automatic triggering of the Sentinel policy.
+* you can override the soft-mandatory violations
+
+---
+# Summarize
+* Common workflow across compute platforms (On-prem + multi-cloud)
+* Automated Producer/Consumer model
+* Automated policy as code enforcement
+* Dramatically reduced time to market/value for new applications and services
+* Reusable code templates for use across business units and use cases
+
 
 # Cleanup
 The `track_scripts/cleanup-terraform` script will automatically clean-up your TFC Organization by running destroy plans against all the workspaces and by destroying the hashicups-cli workspace. This facilitates easier re-use of the same TFC organization when you deliver the demo again.
+
+* **Delete VCS Providers manualy**
