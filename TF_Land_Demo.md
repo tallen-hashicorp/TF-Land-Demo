@@ -45,7 +45,7 @@ First track simply run `~/setup/scripts/tfc-setup.sh` and click **check**
 * Show Current Process Slide to Explain process
 * Show IaC Slide
     * Introduce Infrastructure As Code and State Management - reusability
-* I'll show how we integrate with a version control system like Git, how we declare our infrastructure
+* I'll show how we integrate with a version control system like Git abd how we declare our infrastructure
 * I'll start with provisioning our infrastructure "from scratch" via Terraform OSS, show the outputs, and explore how we can iterate even further.
 
 ---
@@ -61,10 +61,10 @@ terraform init
 terraform plan
 terraform apply
 ```
+* Show tfstate - Its very important to store the state file in a secure location because it does contain sensitive data 
 
 ---
 * **Check** (Sets up TFC)
-* Show tfstate - Its very important to store the state file in a secure location because it does contain sensitive data 
 * Lets migrate our hashicups-cli workspace to Terraform cloud .
 * Show /hashicups-application/remote-backend.tf
 * Explain that the init process migrates the file to TFC and creates the hashicups-cli workspace.
